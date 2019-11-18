@@ -4,8 +4,7 @@
 
 🚧 _Work In Progress_ 🚧
 
-[![travis build Status](https://travis-ci.com/lar-rs/osloader.svg?branch=master)](https://travis-ci.com/lar-rs/miolfs)
-[![builds.sr.ht status](https://builds.sr.ht/~asmolkov/osloader/.build.yml.svg)](https://builds.sr.ht/~asmolkov/lar-rs/miolfs.build.yml?)
+[![travis build Status](https://travis-ci.com/lar-rs/osloader.svg?branch=master)](https://travis-ci.com/lar-rs/osloader)
 [![open issue]][issue]
 ![Minimum Rust Version][min-rust-badge]
 
@@ -51,3 +50,8 @@
 [serde]: https://github.com/serde-rs/serde
 [sp]: https://en.wikipedia.org/wiki/System_programming
 [Rust]: https://www.rust-lang.org/
+
+<!-- Badges -->
+[irc]:          https://webirc.hackint.org/#irc://irc.hackint.org/#lar
+[issue]: https://img.shields.io/github/issues/lar-rs/osloader?style=flat-square
+[min-rust-badge]: https://img.shields.io/badge/rustc-1.38+-blue.svg
