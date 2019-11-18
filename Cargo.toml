@@ -1,0 +1,31 @@
+[package]
+name = "osloader"
+version = "0.1.0"
+authors = ["smolkov <sascha.snolkov@gmail.com>"]
+edition = "2018"
+description = "LAR OS-Loader."
+
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+#Cli
+paw = "1.0.0"
+structopt = { version = "0.3.4" ,features = ["paw"] }
+console = "0.9.1"
+clap_flags= "0.4.0"
+cfg-if = "0.1.10"
+chrono = "0.4.9"
+crossbeam = "0.7.3"
+failure = "0.1.6"
+# futures-timer = "2.0.2"
+lazy_static = "1.4.0"
+# log
+log = "0.4.8"
+femme = "1.3.0"
+# net
+async-std  = { version = "1.0.1", features = ["unstable"] }
+async-trait = "0.1.17"
+async-log = "2.0.0"
+
+serde = { version = "1.0.102" ,features = ["derive"] }
