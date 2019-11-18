@@ -5,7 +5,7 @@
 🚧 _Work In Progress_ 🚧
 
 [![travis build Status](https://travis-ci.com/lar-rs/osloader.svg?branch=master)](https://travis-ci.com/lar-rs/osloader)
-[![open issue]][issue]
+![open issue][issue]
 ![Minimum Rust Version][min-rust-badge]
 
 ## Raspberry
