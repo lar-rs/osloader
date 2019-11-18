@@ -1,6 +1,6 @@
-#  🧰 `osloader`
+# 🌐 `osloader`
 
- **📦  OSLoader in [🦀 **Rust**](https://github.com/lar-rs/osloader)**
+ **📦  OSLoader rewritet in [🦀 **Rust**](https://github.com/lar-rs/osloader)**
 
 🚧 _Work In Progress_ 🚧
 
@@ -10,17 +10,16 @@
 ![Minimum Rust Version][min-rust-badge]
 
 ## Raspberry
-  - [touch display] (https://thepihut.com/blogs/raspberry-pi-tutorials/45295044-raspberry-pi-7-touch-screen-assembly-guide)
+  - [touch display](https://thepihut.com/blogs/raspberry-pi-tutorials/45295044-raspberry-pi-7-touch-screen-assembly-guide)
  
 ## Project Description
 
-## Background
 
 ## Software Documentation
 
 
 
-## 🎙️ Commands
+##  📢 Commands
 
 `osloader` is a CLI tool and controller
 

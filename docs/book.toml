@@ -1,0 +1,6 @@
+[book]
+authors = ["Sascha Smolkov"]
+language = "de"
+multilingual = false
+src = "src"
+title = "OS Loader"
