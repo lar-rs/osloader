@@ -1,5 +1,7 @@
 # 🌐 `osloader`
 
+*Kurze uberschrift.*
+
  **📦  OSLoader rewritet in [🦀 **Rust**](https://github.com/lar-rs/osloader)**
 
 🚧 _Work In Progress_ 🚧
@@ -23,7 +25,9 @@
 `osloader` is a CLI tool and controller
 
   - ### 🔧 `setup`
-      Configure kopfmodul for user.
+      Setup sd card on local PC.
+      - `path`: sd card boot part mount point path
+      - `iface`: to configurate in config.txt
 
     ```
     osloader setup --path /media/sascha/boot

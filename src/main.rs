@@ -3,6 +3,7 @@ use osloader::cli::Args;
 use async_log::span;
 use log::info;
 use async_std::io;
+use async_std::task;
 
 fn setup_logger() {
     let logger = femme::pretty::Logger::new();
@@ -14,14 +15,14 @@ fn setup_logger() {
 #[paw::main]
 fn main(args: Args) -> io::Result<()> {
     setup_logger();
-    span!("new level, depth={}", 1, {
-        let x = "beep";
-        info!("look at this value, x={}", x);
+    // span!("new level, depth={}", 1, {
+    //     let x = "beep";
+    //     info!("look at this value, x={}", x);
 
-        span!("new level, depth={}", 2, {
-            let y = "boop";
-            info!("another nice value, y={}", y);
-        })
-    });
-    Ok(())
+    //     span!("new level, depth={}", 2, {
+    //         let y = "boop";
+    //         info!("another nice value, y={}", y);
+    //     })
+    // });
+    task::block_on(args.command())
 }

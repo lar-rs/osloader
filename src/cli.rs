@@ -1,50 +1,28 @@
 use structopt::*;
 use clap_flags::Log;
 use async_std::io;
-// use structopt::StructOpt;
-// use futures::prelude::*;
+use crate::cmd::Command;
 
-///  ✇ serve tcp/udp controller on net
-#[derive(Debug, StructOpt)]
-pub struct Address {
-    /// 📪  linux socket file or ip addresse
-    #[structopt(short = "p", long = "port", env = "PORT", default_value = "8080")]
-    port: u16,
-     /// 📪  linux socket file or ip addresse
-    #[structopt(short = "a", long = "address", default_value = "127.0.0.1")]
-    address: String,
-}
 
-/// The various kinds of commands that `waretpipe` can execute.
-#[derive(Debug, StructOpt)]
-pub enum Command {
-    Setup{
-        /// 📪  boot directory path
-        #[structopt(short = "p", long = "path")]
-        path: String,
-    },
-}
     
-///🧰 LAR OS loader 
+///🌐  LAR OS loader 
 #[derive(Debug, StructOpt)]
-#[structopt(name = "osloader", about = "LAR OS Loader cli application")]
+#[structopt(name = "osloader", about = "🌐 LAR OS Loader cli")]
 pub struct Args {
-    ///🔧 Activate debug mode
-    ///  short and long flags (-d, --debug) will be deduced from the field's name
+    /// Activate debug mode short and long flags (-d, --debug) will be deduced from the field's name
     #[structopt(short, long)]
     debug: bool,
     // 📝 log level 
     // 
     /// 📢 subcommand to run.
-    #[structopt(subcommand, about = "📢 subcommand to serve controller or start pipeline directly")]
+    #[structopt(subcommand)]
     cmd: Command,
 }
 
 impl Args {
     #[inline]
     pub async fn command(&self) -> io::Result<()> {
-        
-        Ok(())
+        self.cmd.run().await
     }
 }
 // #[derive(Debug, StructOpt)]
