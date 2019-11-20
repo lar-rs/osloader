@@ -13,14 +13,8 @@ lazy_static! {
     static ref TERMINAL: Mutex<Terminal> = Mutex::new(Terminal::new());
 }
 
-#[cfg(unix)]
 pub fn shell() -> String {
     env::var("SHELL").unwrap_or_else(|_| "sh".to_string())
-}
-
-#[cfg(windows)]
-pub fn shell() -> &'static str {
-    which("pwsh").map(|_| "pwsh").unwrap_or("powershell")
 }
 
 pub fn run_shell() {
@@ -196,7 +190,7 @@ pub fn print_info<P: AsRef<str>>(message: P) {
     TERMINAL.lock().unwrap().print_info(message)
 }
 
-pub fn print_result<P: AsRef<str>>(key: P, succeeded: bool) {
+pub fn print_result(key: &str, succeeded: bool) {
     TERMINAL.lock().unwrap().print_result(key, succeeded)
 }
 

@@ -24,3 +24,8 @@ pub fn username() -> String {
 // pub struct RasPi {
     // sysroot:
 // }
+
+
+pub async fn generate_keys()  {
+    
+}
