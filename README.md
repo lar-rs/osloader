@@ -27,7 +27,7 @@
   - ### 🔧 `setup`
       Setup sd card on local PC.
       - `path`: sd card boot part mount point path
-      - `iface`: to configurate in config.txt
+      - `config`: to configurate in config.txt
 
     ```
     osloader setup --path /media/sascha/boot

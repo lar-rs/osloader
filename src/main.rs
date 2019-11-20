@@ -15,14 +15,5 @@ fn setup_logger() {
 #[paw::main]
 fn main(args: Args) -> io::Result<()> {
     setup_logger();
-    // span!("new level, depth={}", 1, {
-    //     let x = "beep";
-    //     info!("look at this value, x={}", x);
-
-    //     span!("new level, depth={}", 2, {
-    //         let y = "boop";
-    //         info!("another nice value, y={}", y);
-    //     })
-    // });
     task::block_on(args.command())
 }

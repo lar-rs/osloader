@@ -29,4 +29,6 @@ async-std  = { version = "1.0.1", features = ["unstable"] }
 async-trait = "0.1.17"
 async-log = "2.0.0"
 
+# Os 
+users = "*"
 serde = { version = "1.0.102", features = ["derive"] }

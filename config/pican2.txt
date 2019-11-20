@@ -42,6 +42,15 @@
 #uncomment to overclock the arm. 700 MHz is the default.
 #arm_freq=800
 
+max_usb_current=1
+hdmi_force_hotplug=1
+config_hdmi_boost=7
+hdmi_group=2
+hdmi_mode=87
+hdmi_drive=1
+display_rotate=0
+hdmi_cvt 1024 600 60 6 0 0 0
+
 # Uncomment some or all of these to enable the optional hardware interfaces
 #dtparam=i2c_arm=on
 dtparam=spi=on 
