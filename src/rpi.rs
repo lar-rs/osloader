@@ -12,7 +12,7 @@ use async_std::task;
 use crate::user;
 
 pub async fn boot_config() -> PathBuf {
-    PathBuf::from("config/pican2.txt")
+    PathBuf::from("config/config.txt")
 }
 
 pub async fn rootfs() -> io::Result<PathBuf> {

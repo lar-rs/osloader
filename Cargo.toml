@@ -16,8 +16,11 @@ console = "0.9.1"
 prettytable-rs = "0.8.0"
 clap_flags= "0.4.0"
 cfg-if = "0.1.10"
+# Time 
 chrono = "0.4.9"
+# Channels
 crossbeam = "0.7.3"
+# Errors
 failure = "0.1.6"
 # futures-timer = "2.0.2"
 lazy_static = "1.4.0"
