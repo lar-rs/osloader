@@ -11,7 +11,7 @@ description = "LAR OS-Loader."
 [dependencies]
 #Cli
 paw = "1.0.0"
-structopt = { version = "0.3.4", features = ["paw"] }
+structopt = { version = "0.3.5", features = ["paw"] }
 console = "0.9.1"
 prettytable-rs = "0.8.0"
 clap_flags= "0.4.0"
@@ -28,10 +28,10 @@ lazy_static = "1.4.0"
 log = "0.4.8"
 femme = "1.3.0"
 # net
-async-std  = { version = "1.0.1", features = ["unstable"] }
-async-trait = "0.1.17"
+async-std  = { version = "1.1.0", features = ["unstable"] }
+async-trait = "0.1.19"
 async-log = "2.0.0"
 
 # Os 
-users = "*"
+users = "0.9.1"
 serde = { version = "1.0.102", features = ["derive"] }

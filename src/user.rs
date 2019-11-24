@@ -1,11 +1,11 @@
 /// Parent system dirs
 ///  $HOME/.ssh wird ermittelt um ssh key zu ubertragen.
 
-use log::info;
-use async_std::io;
-use async_std::path::{PathBuf,Path};
-use async_std::fs;
-use async_std::task;
+// use log::info;
+// use async_std::io;
+use async_std::path::{PathBuf};
+// use async_std::fs;
+// use async_std::task;
 use std::env;
 use users;
 
@@ -20,6 +20,19 @@ pub fn username() -> String {
         None        => "root".to_string(),
     }
 }
+
+pub struct User {
+    ///🔧 username 
+    pub name: String,
+}
+
+#[derive(Debug,StructOpt)]
+pub struct Opt {
+    ///🔧 username 
+    #[structopt(short = "n", long = "name",  default_value = "sascha")]
+    name: String,
+}
+
 
 // pub struct RasPi {
     // sysroot:

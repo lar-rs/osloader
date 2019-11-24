@@ -1,40 +1,63 @@
 use setde::Deserialize;
+use async_std::sync::RwLock;
+use async_std::path::PathBuf;
 use lazy_static::lazy_static;
+
+static mut A: u32 = 0;
 
 lazy_static!{
     static ref TEMP: RwLock<BTreeSet<PathBuf>> = RwLock::new(BTreeMap::new());
+    static ref CONF: RwLock<Confing> = RwLock::new(Config::default())
 }
 
 type Commands = BTreeMap<String, String>;
 
-pub struct Confing {
-    pub image: String,
-    pub conf : String,
-    pub git:   String,
+// #[derive(Deserialize, Default, Debug)]
+// Configuration file
+pub struct Config {
+    pub cf:     PathBuf,
+    pub boot:   PathBuf,
+    pub sysfs:  PathBuf,
+    pub backup: PathBuf,
+    // pub conf:   String,
+    // pub git:    String,
+    // pub wpa:    String,
 }
 
-#[derive(Deserialize, Default, Debug)]
-#[serde(deny_unknown_fields)]
-/// Configuration file
-pub struct ConfigFile {
-    pre_commands: Option<Commands>,
-    commands: Option<Commands>,
-    git_repos: Option<Vec<String>>,
-    // disable: Option<Vec<Step>>,
-    remote_topgrades: Option<Vec<String>>,
-    ssh_arguments: Option<String>,
-    git_arguments: Option<String>,
-    tmux_arguments: Option<String>,
-    set_title: Option<bool>,
-    assume_yes: Option<bool>,
-    yay_arguments: Option<String>,
-    no_retry: Option<bool>,
-    run_in_tmux: Option<bool>,
-    cleanup: Option<bool>,
-    // only: Option<Vec<Step>>,
+impl Default for Config {
+    fn default()->Config {
+        Config {
+            cf     : PathBuf::from("/dev/sdd"),
+            booot  : PathBuf::from("boot"),
+            sysfs  : PathBuf::from("sysfs"),
+            backup : PathBuf::from("config/lar-rpi"),
+
+        }
+    }
 }
 
-impl ConfigFile {
+// #[derive(Deserialize, Default, Debug)]
+// #[serde(deny_unknown_fields)]
+// /// Configuration file
+// pub struct ConfigFile {
+//     pre_commands: Option<Commands>,
+//     commands: Option<Commands>,
+//     git_repos: Option<Vec<String>>,
+//     // disable: Option<Vec<Step>>,
+//     remote_topgrades: Option<Vec<String>>,
+//     ssh_arguments: Option<String>,
+//     git_arguments: Option<String>,
+//     tmux_arguments: Option<String>,
+//     set_title: Option<bool>,
+//     assume_yes: Option<bool>,
+//     yay_arguments: Option<String>,
+//     no_retry: Option<bool>,
+//     run_in_tmux: Option<bool>,
+//     cleanup: Option<bool>,
+//     // only: Option<Vec<Step>>,
+// }
+
+// impl ConfigFile {
     // fn ensure(base_dirs: &BaseDirs) -> Result<PathBuf, Error> {
     //     let config_path = base_dirs.config_dir().join("topgrade.toml");
     //     if !config_path.exists() {
@@ -87,21 +110,21 @@ impl ConfigFile {
     // }
 }
 
-pub struct Config {
-    dev: String,
-    rpi:Option<RPiConfig>,
-    cfgfile: ConfigFile,
-}
+// pub struct Config {
+    // dev: String,
+    // rpi:Option<RPiConfig>,
+    // cfgfile: ConfigFile,
+// }
 
 
 
-impl Default for Config {
-    fn default() -> Config {
-        Config{
-            dev: "/dev/sdc",
-        }
-    }
-}
+// impl Default for Config {
+    // fn default() -> Config {
+        // Config{
+            // dev: "/dev/sdc",
+        // }
+    // }
+// }
 
 
 

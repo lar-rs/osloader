@@ -20,20 +20,27 @@ use structopt::StructOpt;
 ///run to setup sd-card on local pc
 #[derive(Debug,StructOpt)]
 pub struct Opt {
-    ///sd boot directory mount path
-    #[structopt(short = "p", long = "path")]
-    path: String,
+    ///🔧 backup directory
+    #[structopt(short = "d", long = "dir",  default_value = "config/lar-pi")]
+    dir: String,
+    ///🔧 boot dir 
+    #[structopt(short = "b", long = "boot",  default_value = "/media/sascha/boot")]
+    boot: String,
+    // #[structopt(short= "", long = "json")]
+    // conf: String,
+
 }
 
 
 
 impl Opt {
     pub async fn run(&self) -> io::Result<()> {
-        let dir = PathBuf::from(&self.path);
+        let dir = PathBuf::from(&self.boot);
         info!("run subcommand setup");
         os::setup_config(&dir).await?;
         os::enable_ssh(&dir).await?;
         os::enable_wlan(&dir).await?;
         Ok(())
     }
+    
 }

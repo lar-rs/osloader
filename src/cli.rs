@@ -1,9 +1,26 @@
 use structopt::*;
-use clap_flags::Log;
+// use clap_flags::Log;
 use async_std::io;
-use crate::cmd::Command;
+use super::rpi as target;
 
+///📢 subcommands 
+#[derive(Debug, StructOpt)]
+pub enum Cmd {
+    #[structopt(name = "setup", about = "run to setup sd-card on local pc")]
+    ///setup os
+    Setup(target::Opt),
+    // #[structopt(name = "upgrade", about = "upgrade c")]
+    // Upgrade,
 
+}
+
+impl Cmd {
+    pub async fn run(&self) -> io::Result<()> {
+        match &self {
+            Cmd::Setup(opt) => opt.run().await
+        }
+    }
+}
     
 ///🌐  LAR OS loader 
 #[derive(Debug, StructOpt)]
@@ -16,7 +33,7 @@ pub struct Args {
     // 
     /// 📢 subcommand to run.
     #[structopt(subcommand)]
-    cmd: Command,
+    cmd: Cmd,
 }
 
 impl Args {

@@ -1,7 +1,7 @@
 
 use osloader::cli::Args;
-use async_log::span;
-use log::info;
+// use async_log::span;
+// use log::info;
 use async_std::io;
 use async_std::task;
 
